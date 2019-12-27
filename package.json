@@ -1,12 +1,16 @@
 {
 	"name": "prepare-react-project",
 	"version": "1.0.0",
-	"description": "",
+	"description": "Clean and prepare react application for development",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"keywords": [],
+	"keywords": [
+		"react",
+		"create-react-app",
+		"javascript"
+	],
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
