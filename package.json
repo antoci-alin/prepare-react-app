@@ -2,7 +2,10 @@
 	"name": "prepare-react-project",
 	"version": "1.0.0",
 	"description": "Clean and prepare react application for development",
-	"main": "index.js",
+	"main": "",
+	"bin": {
+		"prepare-react-project": "./bin/index.js"
+	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
