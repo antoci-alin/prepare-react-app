@@ -4,7 +4,7 @@ const colors = require("colors");
 const ora = require("ora");
 
 const { getDepVer, getReactRouterDOM } = require("../lib/getDepedencies");
-const { removeFiles, manageFolders, createStyleFiles } = require("../lib/fileActions");
+const { removeFiles, manageFolders, createFiles } = require("../lib/fileActions");
 
 const spinner = new ora({
 	color: "blue",
@@ -19,6 +19,9 @@ const spinner = new ora({
 
 	if (depList.length > 0) {
 		spinner.succeed(` ${colors.bgBlue("create-react-app")} installed`);
+	} else {
+		spinner.fail(` ${colors.bgBlue("create-react-app")} not installed. Please install! ${colors.bgBlack("npm i create-react-app --save")} `);
+		return;
 	}
 
 	spinner.stop();
@@ -32,7 +35,7 @@ const spinner = new ora({
 	console.log(`\n። Preparing your project`);
 	await removeFiles();
 	await manageFolders();
-	await createStyleFiles();
+	await createFiles();
 
 	console.log(`\n። All set!\n\n You can now start your server with ${colors.bgRed("yarn start")}`);
 })();
