@@ -12,12 +12,24 @@
 	"keywords": [
 		"react",
 		"create-react-app",
-		"javascript"
+		"javascript",
+		"prepare react application",
+		"web",
+		"reactjs",
+		"development"
 	],
-	"author": "",
+	"author": "Alin Georgian, Antoci",
 	"license": "ISC",
 	"dependencies": {
 		"colors": "^1.4.0",
 		"ora": "^4.0.3"
-	}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/antoci-alin/prepare-react-project.git"
+	},
+	"bugs": {
+		"url": "https://github.com/antoci-alin/prepare-react-project/issues"
+	},
+	"homepage": "https://github.com/antoci-alin/prepare-react-project#readme"
 }
