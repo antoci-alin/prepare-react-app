@@ -48,6 +48,7 @@ Running `prepare-react-project` will install `react-router-dom@latest` and \`nod
 
 # What's new?
 
+-   `1.2.0` - Prompt to install create-react-app if you don't have it.
 -   `1.1.0` - Added Prettier as an option with default rules.
 -   `1.0.0` - Initial features.
 
