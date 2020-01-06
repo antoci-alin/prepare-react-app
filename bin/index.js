@@ -2,11 +2,26 @@
 
 const colors = require("colors");
 const ora = require("ora");
+const readline = require("readline");
 
-const { getDepVer, getReactRouterDOM, getPrettier } = require("../lib/getDepedencies");
+const { getDepVer, getReactRouterDOM, getPrettier, getCreateReactApp } = require("../lib/getDepedencies");
 const { removeFiles, manageFolders, createFiles } = require("../lib/fileActions");
 
 let arguments = process.argv.splice(2);
+
+const askQuestion = () => {
+	const rl = readline.createInterface({
+		input: process.stdin,
+		output: process.stdout
+	});
+
+	return new Promise(resolve =>
+		rl.question(`Do you want to install it now? \n (yes/no):`, ans => {
+			rl.close();
+			resolve(ans);
+		})
+	);
+};
 
 const spinner = new ora({
 	color: "blue",
@@ -17,13 +32,27 @@ const spinner = new ora({
 (async () => {
 	console.log(`\n። Checking if ${colors.bgBlue("create-react-app")} is installed`);
 	spinner.start();
-	let depList = await getDepVer();
+	try {
+		await getDepVer();
+	} catch {
+		spinner.fail(` ${colors.bgBlue("create-react-app")} not installed.`);
+		spinner.stop();
 
-	if (depList.length > 0) {
-		spinner.succeed(` ${colors.bgBlue("create-react-app")} installed`);
-	} else {
-		spinner.fail(` ${colors.bgBlue("create-react-app")} not installed. Please install! ${colors.bgBlack("npm i create-react-app --save")} `);
-		return;
+		const ans = await askQuestion();
+
+		switch (ans.toLocaleLowerCase()) {
+			case "y" || "yes":
+				console.log(`\n። Installing ${colors.bgBlue("create-react-app")}`);
+				spinner.start();
+				await getCreateReactApp();
+				spinner.stop();
+				spinner.succeed(` ${colors.bgBlue("create-react-app")} installed!`);
+				break;
+			case "no" || "n":
+				return;
+			default:
+				return;
+		}
 	}
 
 	spinner.stop();
@@ -32,7 +61,7 @@ const spinner = new ora({
 	spinner.start();
 	await getReactRouterDOM();
 	spinner.stop();
-	spinner.succeed(` ${colors.bgBlue("react-router-dom")} installed`);
+	spinner.succeed(` ${colors.bgBlue("react-router-dom")} & ${colors.bgBlue("node-sass")} installed`);
 
 	if (arguments[0] === "--prettier") {
 		console.log(`\n። Installing ${colors.bgBlue("Prettier")}`);

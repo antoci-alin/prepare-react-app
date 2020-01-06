@@ -40,7 +40,7 @@ Now wait 😄
 
 # What's included?
 
-Running `prepare-react-project` will install _`react-router-dom@latest`_ and \_`node-sass@latest`.
+Running `prepare-react-project` will install `react-router-dom@latest` and \`node-sass@latest`
 
 # License
 
@@ -49,7 +49,6 @@ Running `prepare-react-project` will install _`react-router-dom@latest`_ and \_`
 # What's new?
 
 -   `1.1.0` - Added Prettier as an option with default rules.
--   `1.0.1` - Bug fixes.
 -   `1.0.0` - Initial features.
 
 # What's next on paper?
