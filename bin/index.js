@@ -3,8 +3,10 @@
 const colors = require("colors");
 const ora = require("ora");
 
-const { getDepVer, getReactRouterDOM } = require("../lib/getDepedencies");
+const { getDepVer, getReactRouterDOM, getPrettier } = require("../lib/getDepedencies");
 const { removeFiles, manageFolders, createFiles } = require("../lib/fileActions");
+
+let arguments = process.argv.splice(2);
 
 const spinner = new ora({
 	color: "blue",
@@ -31,6 +33,14 @@ const spinner = new ora({
 	await getReactRouterDOM();
 	spinner.stop();
 	spinner.succeed(` ${colors.bgBlue("react-router-dom")} installed`);
+
+	if (arguments[0] === "--prettier") {
+		console.log(`\n። Installing ${colors.bgBlue("Prettier")}`);
+		spinner.start();
+		await getPrettier();
+		spinner.stop();
+		spinner.succeed(` ${colors.bgBlue("prettier")} installed (dep)`);
+	}
 
 	console.log(`\n። Preparing your project`);
 	await removeFiles();

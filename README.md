@@ -45,3 +45,9 @@ Running `prepare-react-project` will install _`react-router-dom@latest`_ and \_`
 # License
 
 `prepare-react-project` is open source.
+
+# What's new?
+
+-   `1.1.0` - Added Prettier as an option with default rules.
+-   `1.0.1` - Bug fixes.
+-   `1.0.0` - Initial features.
