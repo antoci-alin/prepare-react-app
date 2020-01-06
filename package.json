@@ -16,7 +16,8 @@
 		"prepare react application",
 		"web",
 		"reactjs",
-		"development"
+		"development",
+		"nodejs"
 	],
 	"author": "Alin Georgian, Antoci",
 	"license": "ISC",
