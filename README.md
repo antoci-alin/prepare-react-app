@@ -38,6 +38,10 @@ prepare-react-project
 
 Now wait 😄
 
+# Options
+
+-   `--prettier` - add prettier
+
 # What's included?
 
 Running `prepare-react-project` will install `react-router-dom@latest` and \`node-sass@latest`
